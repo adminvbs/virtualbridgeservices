@@ -20,26 +20,6 @@
         }
 #mainNav {
     background-color: #123358 !important;
-    position: fixed;
-    top: 50px;
-    width: 100%;
-    z-index: 1040;
-    transition: top 0.3s ease;
-}
-
-.top-brand-bar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1050;
-    background: white;
-    text-align: center;
-    padding: 6px 0;
-    transition: top 0.3s ease;
-}
-
-.top-brand-bar img {
-    height: 45px;
 }
         .hero h1 {
             font-size: 3rem;
@@ -617,7 +597,7 @@ window.addEventListener("scroll", function () {
     } else {
         // scrolling up
         topBar.style.top = "0";
-        navBar.style.top = "50px";
+        navBar.style.top = "72px";
     }
 
     lastScroll = currentScroll;
