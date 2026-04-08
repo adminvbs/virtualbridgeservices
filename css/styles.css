@@ -11666,18 +11666,25 @@ tr:last-child td {
 .top-brand-bar {
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
   background: #fff;
   z-index: 1050;
   padding: 12px 0;
-  text-align: center;
   border-bottom: 1px solid #eee;
 }
 
+.top-brand-bar .container {
+  display: flex;
+  align-items: center;
+}
+
 .top-brand-bar img {
-  height: 45px;
+  height: 48px;
+  width: auto;
+  display: block;
 }
 
 #mainNav {
-  top: 70px;
+  top: 72px;
 }
