@@ -23335,8 +23335,9 @@ tr:last-child td {
   width: 100%;
   background: #fff;
   z-index: 1060;
-  padding: 0;
   border-bottom: 1px solid #eee;
+  transition: transform 0.3s ease;
+}
 }
 
 .top-brand-bar .container {
