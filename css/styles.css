@@ -23353,6 +23353,11 @@ tr:last-child td {
 
 #mainNav {
   top: 72px;
+  transition: top 0.3s ease;
+}
+
+#mainNav.nav-up {
+  top: 0;
 }
 
 header.masthead {
