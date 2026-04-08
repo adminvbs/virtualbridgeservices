@@ -893,5 +893,23 @@
     <!-- JavaScript -->
     <script src="js/script.js"></script>
 </html>
+<script>
+let lastScrollTop = 0;
+const topBar = document.querySelector('.top-brand-bar');
+
+window.addEventListener("scroll", function () {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollTop > lastScrollTop && scrollTop > 100) {
+        // scrolling down → hide
+        topBar.style.transform = "translateY(-100%)";
+    } else {
+        // scrolling up → show
+        topBar.style.transform = "translateY(0)";
+    }
+
+    lastScrollTop = scrollTop;
+});
+</script>
     </body>
 </html>
