@@ -4,14 +4,16 @@
     <meta charset="utf-8" />
     <title>Pricing - Virtual Bridge Services</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
     <link href="css/styles.css" rel="stylesheet" />
 
     <style>
-        body { background: #f5f7fb; }
+        body {
+            background: #f5f7fb;
+            color: #123358;
+        }
 
         .hero {
-            padding: 140px 0 70px;
+            padding: 140px 0 80px;
             background: #071a2f;
             color: white;
             text-align: center;
@@ -19,150 +21,524 @@
 
         .hero h1 {
             font-size: 3rem;
-            font-weight: 700;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            max-width: 760px;
+            margin: 0 auto;
         }
 
         .section {
             padding: 70px 0;
         }
 
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 12px;
+            color: #123358;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #5b617a;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            font-size: 1.05rem;
+        }
+
         .card-box {
             background: white;
             border-radius: 24px;
-            padding: 40px;
+            padding: 35px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.08);
         }
 
-        .form-control {
+        .info-card {
+            background: white;
+            border-radius: 22px;
+            padding: 28px;
+            height: 100%;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+            border: 1px solid #e8edf5;
+        }
+
+        .info-card h4 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            color: #123358;
+        }
+
+        .info-card p {
+            color: #5b617a;
+            margin-bottom: 0;
+            line-height: 1.7;
+        }
+
+        .pill {
+            display: inline-block;
+            background: #eef4ff;
+            color: #1677ee;
+            padding: 8px 14px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 0.92rem;
+            margin-bottom: 15px;
+        }
+
+        .calculator-wrap {
+            background: white;
+            border-radius: 28px;
+            padding: 40px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+        }
+
+        .form-label-custom {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #123358;
+        }
+
+        .form-control-custom {
             width: 100%;
-            padding: 14px;
-            border-radius: 14px;
-            border: 1px solid #ddd;
+            padding: 15px 16px;
+            border-radius: 16px;
+            border: 1px solid #d8e2f0;
+            background: #fff;
+            font-size: 1rem;
+        }
+
+        .result-box {
+            margin-top: 28px;
+            background: #f8fbff;
+            border: 1px solid #dbe8fb;
+            border-radius: 20px;
+            padding: 28px;
+        }
+
+        .result-label {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #5b617a;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 8px;
         }
 
         .result {
-            font-size: 42px;
+            font-size: 3rem;
             font-weight: 800;
             color: #1677ee;
-            margin-top: 20px;
+            line-height: 1.1;
+            margin-bottom: 10px;
+        }
+
+        .result-detail {
+            color: #4b5563;
+            font-size: 1rem;
+            margin-bottom: 0;
+        }
+
+        .included-box {
+            margin-top: 24px;
+            background: #fff;
+            border: 1px solid #e8edf5;
+            border-radius: 20px;
+            padding: 24px;
+        }
+
+        .included-box h4 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .included-box ul {
+            margin-bottom: 0;
+            padding-left: 1.2rem;
+        }
+
+        .included-box li {
+            margin-bottom: 8px;
+            color: #374151;
+        }
+
+        .note-box {
+            margin-top: 18px;
+            padding: 16px 18px;
+            border-radius: 16px;
+            background: #fff8ec;
+            color: #8a5a00;
+            font-size: 0.95rem;
+            border: 1px solid #ffe1a8;
+        }
+
+        .example-card {
+            background: white;
+            border-radius: 22px;
+            padding: 30px;
+            height: 100%;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+            border: 1px solid #e8edf5;
+        }
+
+        .example-card h4 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .example-card .role-type {
+            color: #1677ee;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .example-line {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 12px 0;
+            border-bottom: 1px solid #edf1f7;
+            color: #374151;
+        }
+
+        .example-line:last-child {
+            border-bottom: none;
+        }
+
+        .example-total {
+            font-size: 1.9rem;
+            font-weight: 800;
+            color: #1677ee;
+            margin-top: 18px;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, #123358, #1677ee);
+            border-radius: 28px;
+            padding: 45px;
+            color: white;
+            text-align: center;
+        }
+
+        .cta-box h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .cta-box p {
+            max-width: 760px;
+            margin: 0 auto 24px;
+            font-size: 1.05rem;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .cta-actions {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn-primary,
+        .cta-btn-secondary {
+            display: inline-block;
+            padding: 14px 24px;
+            border-radius: 999px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .cta-btn-primary {
+            background: white;
+            color: #123358;
+        }
+
+        .cta-btn-secondary {
+            background: rgba(255,255,255,0.14);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.25);
+        }
+
+        .small-muted {
+            color: #6b7280;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 991px) {
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+
+            .section-title {
+                font-size: 1.9rem;
+            }
+
+            .result {
+                font-size: 2.4rem;
+            }
+
+            .calculator-wrap,
+            .card-box,
+            .info-card,
+            .example-card,
+            .cta-box {
+                padding: 24px;
+            }
         }
     </style>
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">VIRTUAL BRIDGE SERVICES</a>
+        </div>
+    </nav>
 
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-    <div class="container">
-        <a class="navbar-brand" href="index.html">VIRTUAL BRIDGE SERVICES</a>
-    </div>
-</nav>
+    <header class="hero">
+        <div class="container">
+            <h1>Transparent Pricing</h1>
+            <p>
+                Estimate your monthly cost instantly based on role and workload. Our pricing is simple, predictable, and built for growing businesses.
+            </p>
+        </div>
+    </header>
 
-<header class="hero">
-    <div class="container">
-        <h1>Transparent Pricing</h1>
-        <p>Estimate your monthly cost instantly based on your needs</p>
-    </div>
-</header>
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">How Our Pricing Works</h2>
+            <p class="section-subtitle">
+                We combine competitive hourly rates with managed support so you get both affordable talent and reliable delivery.
+            </p>
 
-<section class="section">
-<div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="info-card">
+                        <div class="pill">Step 1</div>
+                        <h4>Role Based Hourly Rate</h4>
+                        <p>
+                            Your monthly cost starts with the hourly range of the role you need. Rates vary based on the type of support and specialization required.
+                        </p>
+                    </div>
+                </div>
 
-<div class="card-box">
+                <div class="col-md-4">
+                    <div class="info-card">
+                        <div class="pill">Step 2</div>
+                        <h4>Monthly Management Fee</h4>
+                        <p>
+                            Every estimate includes our fixed monthly management fee of <strong>$300 USD</strong> for account management, HR support, and service oversight.
+                        </p>
+                    </div>
+                </div>
 
-<h3>Pricing Calculator</h3>
+                <div class="col-md-4">
+                    <div class="info-card">
+                        <div class="pill">Step 3</div>
+                        <h4>Advance Billing</h4>
+                        <p>
+                            We bill one month in advance. Invoices are issued 15 days before the service month and are payable within 7 days.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<label>Role</label>
-<select id="role" class="form-control">
-    <option value="admin">Admin VA</option>
-    <option value="customer">Customer Support</option>
-    <option value="executive">Executive Assistant</option>
-    <option value="data">Data Entry Specialist</option>
-    <option value="bookkeeper">Bookkeeper</option>
-    <option value="sales">Sales / Lead Generation</option>
-    <option value="social">Social Media Manager</option>
-    <option value="content">Content Writer</option>
-    <option value="designer">Graphic Designer</option>
-    <option value="video">Video Editor</option>
-    <option value="crm">CRM Specialist</option>
-    <option value="developer">Web Developer</option>
-    <option value="it">IT Support</option>
-</select>
+    <section class="section pt-0">
+        <div class="container">
+            <div class="calculator-wrap">
+                <h2 style="font-size:2rem; font-weight:800; margin-bottom:8px;">Pricing Calculator</h2>
+                <p class="small-muted" style="margin-bottom:28px;">
+                    Select the role and workload to estimate your monthly cost in USD.
+                </p>
 
-<br><br>
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <label class="form-label-custom" for="role">Role</label>
+                        <select id="role" class="form-control-custom">
+                            <option value="admin">Admin VA</option>
+                            <option value="customer">Customer Support</option>
+                            <option value="executive">Executive Assistant</option>
+                            <option value="data">Data Entry Specialist</option>
+                            <option value="bookkeeper">Bookkeeper / Finance VA</option>
+                            <option value="sales">Sales / Lead Generation VA</option>
+                            <option value="social">Social Media Manager</option>
+                            <option value="content">Content Writer</option>
+                            <option value="designer">Graphic Designer</option>
+                            <option value="video">Video Editor</option>
+                            <option value="crm">CRM / Automation Specialist</option>
+                            <option value="developer">Web Developer</option>
+                            <option value="it">IT Support Specialist</option>
+                        </select>
+                    </div>
 
-<label>Workload</label>
-<select id="workload" class="form-control">
-    <option value="full">Full Time (174 hrs/month)</option>
-    <option value="part">Part Time (87 hrs/month)</option>
-</select>
+                    <div class="col-md-6">
+                        <label class="form-label-custom" for="workload">Workload</label>
+                        <select id="workload" class="form-control-custom">
+                            <option value="full">Full Time (174 hrs/month)</option>
+                            <option value="part">Part Time (87 hrs/month)</option>
+                        </select>
+                    </div>
+                </div>
 
-<div class="result" id="result">
-$1,170 – $1,518
-</div>
+                <div class="result-box">
+                    <div class="result-label">Estimated Monthly Cost</div>
+                    <div class="result" id="result">$1,170 – $1,518</div>
+                    <p class="result-detail" id="details">
+                        Admin VA at full time, inclusive of the $300 monthly management fee.
+                    </p>
+                </div>
 
-<p id="details">
-Admin VA full time including $300 management fee
-</p>
+                <div class="included-box">
+                    <h4>Included in your monthly fee</h4>
+                    <ul>
+                        <li>Dedicated account manager</li>
+                        <li>Onboarding and HR support</li>
+                        <li>Accurate timekeeping and payroll coordination</li>
+                        <li>Performance monitoring and support</li>
+                        <li>90 day probationary period with free replacement</li>
+                    </ul>
+                </div>
 
-<hr>
+                <div class="note-box">
+                    Billing is one month in advance. Invoices are issued 15 days before the service month and are payable within 7 days.
+                </div>
+            </div>
+        </div>
+    </section>
 
-<h4>Included in your monthly fee</h4>
-<ul>
-<li>Dedicated account manager</li>
-<li>Onboarding and HR support</li>
-<li>Accurate timekeeping and payroll coordination</li>
-<li>Performance monitoring and support</li>
-<li>90 day probationary period with free replacement</li>
-</ul>
+    <section class="section pt-0">
+        <div class="container">
+            <h2 class="section-title">Pricing Examples</h2>
+            <p class="section-subtitle">
+                Here are sample estimates to help you quickly understand how the pricing works.
+            </p>
 
-<p style="margin-top:20px;">
-Billing is one month in advance. Invoice is issued 15 days before the service month and payable within 7 days.
-</p>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="example-card">
+                        <h4>Admin VA</h4>
+                        <div class="role-type">Full Time Example</div>
 
-<a href="contact.html" class="btn btn-primary mt-3">Enquire Now</a>
+                        <div class="example-line">
+                            <span>Hourly Rate</span>
+                            <strong>$5 – $7/hr</strong>
+                        </div>
+                        <div class="example-line">
+                            <span>Monthly Hours</span>
+                            <strong>174 hrs</strong>
+                        </div>
+                        <div class="example-line">
+                            <span>Management Fee</span>
+                            <strong>$300</strong>
+                        </div>
+                        <div class="example-line">
+                            <span>Estimated Total</span>
+                            <strong>$1,170 – $1,518</strong>
+                        </div>
 
-</div>
+                        <div class="example-total">Estimated Monthly Cost: $1,170 – $1,518</div>
+                    </div>
+                </div>
 
-</div>
-</section>
+                <div class="col-lg-6">
+                    <div class="example-card">
+                        <h4>Bookkeeper / Finance VA</h4>
+                        <div class="role-type">Full Time Example</div>
 
-<script>
-const pricing = {
-    admin: [5,7],
-    customer: [5,7],
-    executive: [6,8],
-    data: [5,7],
-    bookkeeper: [6,8],
-    sales: [6,8],
-    social: [7,9],
-    content: [7,9],
-    designer: [7,9],
-    video: [7,9],
-    crm: [9,12],
-    developer: [9,12],
-    it: [9,12]
-};
+                        <div class="example-line">
+                            <span>Hourly Rate</span>
+                            <strong>$6 – $8/hr</strong>
+                        </div>
+                        <div class="example-line">
+                            <span>Monthly Hours</span>
+                            <strong>174 hrs</strong>
+                        </div>
+                        <div class="example-line">
+                            <span>Management Fee</span>
+                            <strong>$300</strong>
+                        </div>
+                        <div class="example-line">
+                            <span>Estimated Total</span>
+                            <strong>$1,344 – $1,692</strong>
+                        </div>
 
-function calc(){
-    const role = document.getElementById("role").value;
-    const workload = document.getElementById("workload").value;
+                        <div class="example-total">Estimated Monthly Cost: $1,344 – $1,692</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    const hours = workload === "full" ? 174 : 87;
-    const fee = 300;
+    <section class="section pt-0">
+        <div class="container">
+            <div class="cta-box">
+                <h3>Need a tailored quote?</h3>
+                <p>
+                    If you already know what type of support you need, let’s talk. We can recommend the right role, workload, and setup for your business.
+                </p>
 
-    const low = (pricing[role][0]*hours)+fee;
-    const high = (pricing[role][1]*hours)+fee;
+                <div class="cta-actions">
+                    <a href="contact.html" class="cta-btn-primary">Enquire Now</a>
+                    <a href="https://calendly.com/admin-virtualbridgeservices/filipino-va-client-inquiry" target="_blank" class="cta-btn-secondary">Book a Meeting</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    document.getElementById("result").innerText =
-        "$"+low.toLocaleString()+" – $"+high.toLocaleString();
+    <script>
+        const pricing = {
+            admin: { label: "Admin VA", low: 5, high: 7 },
+            customer: { label: "Customer Support", low: 5, high: 7 },
+            executive: { label: "Executive Assistant", low: 6, high: 8 },
+            data: { label: "Data Entry Specialist", low: 5, high: 7 },
+            bookkeeper: { label: "Bookkeeper / Finance VA", low: 6, high: 8 },
+            sales: { label: "Sales / Lead Generation VA", low: 6, high: 8 },
+            social: { label: "Social Media Manager", low: 7, high: 9 },
+            content: { label: "Content Writer", low: 7, high: 9 },
+            designer: { label: "Graphic Designer", low: 7, high: 9 },
+            video: { label: "Video Editor", low: 7, high: 9 },
+            crm: { label: "CRM / Automation Specialist", low: 9, high: 12 },
+            developer: { label: "Web Developer", low: 9, high: 12 },
+            it: { label: "IT Support Specialist", low: 9, high: 12 }
+        };
 
-    document.getElementById("details").innerText =
-        role + " " + workload + " including $300 management fee";
-}
+        const workloadLabels = {
+            full: { label: "full time", hours: 174 },
+            part: { label: "part time", hours: 87 }
+        };
 
-document.getElementById("role").addEventListener("change", calc);
-document.getElementById("workload").addEventListener("change", calc);
-</script>
+        function calc() {
+            const roleKey = document.getElementById("role").value;
+            const workloadKey = document.getElementById("workload").value;
 
+            const role = pricing[roleKey];
+            const workload = workloadLabels[workloadKey];
+            const fee = 300;
+
+            const low = (role.low * workload.hours) + fee;
+            const high = (role.high * workload.hours) + fee;
+
+            document.getElementById("result").innerText =
+                "$" + low.toLocaleString() + " – $" + high.toLocaleString();
+
+            document.getElementById("details").innerText =
+                role.label + " at " + workload.label + ", inclusive of the $300 monthly management fee.";
+        }
+
+        document.getElementById("role").addEventListener("change", calc);
+        document.getElementById("workload").addEventListener("change", calc);
+        calc();
+    </script>
 </body>
 </html>
