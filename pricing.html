@@ -272,6 +272,20 @@
             color: #6b7280;
             font-size: 0.95rem;
         }
+        .onboarding-box {
+    margin-top: 14px;
+    padding: 14px 18px;
+    border-radius: 14px;
+    background: #eef4ff;
+    border: 1px solid #dbe8fb;
+    color: #123358;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.onboarding-box strong {
+    color: #1677ee;
+}
 
         @media (max-width: 991px) {
             .hero h1 {
@@ -334,9 +348,9 @@
                 <div class="col-md-4">
                     <div class="info-card">
                         <div class="pill">Step 2</div>
-                        <h4>Monthly Management Fee</h4>
+                        <h4>Fees Structure</h4>
                         <p>
-                            Every estimate includes our fixed monthly management fee of <strong>$300 USD</strong> for account management, HR support, and service oversight.
+                            Your pricing includes a <strong>$300 USD one-time onboarding fee</strong> for sourcing, screening, and onboarding, plus a <strong>$300 USD monthly management fee</strong> covering account management, HR support, and ongoing service oversight.
                         </p>
                     </div>
                 </div>
@@ -397,6 +411,9 @@
                     <p class="result-detail" id="details">
                         Admin VA at full time, inclusive of the $300 monthly management fee.
                     </p>
+                    <div class="onboarding-box">
+    <strong>One-Time Onboarding:</strong> $300 USD (applies on your first month only)
+</div>
                 </div>
 
                 <div class="included-box">
@@ -533,7 +550,7 @@
                 "$" + low.toLocaleString() + " – $" + high.toLocaleString();
 
             document.getElementById("details").innerText =
-                role.label + " at " + workload.label + ", inclusive of the $300 monthly management fee.";
+                role.label + " at " + workload.label + ", inclusive of the $300 monthly management fee. A one-time $300 onboarding fee applies on your first invoice.";
         }
 
         document.getElementById("role").addEventListener("change", calc);
