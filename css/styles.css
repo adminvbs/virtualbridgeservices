@@ -11669,22 +11669,34 @@ tr:last-child td {
   left: 0;
   width: 100%;
   background: #fff;
-  z-index: 1050;
-  padding: 12px 0;
+  z-index: 1060;
+  padding: 10px 0;
   border-bottom: 1px solid #eee;
 }
 
 .top-brand-bar .container {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
 }
 
 .top-brand-bar img {
-  height: 48px;
+  height: 38px;
   width: auto;
   display: block;
 }
 
 #mainNav {
-  top: 72px;
+  top: 58px;
+  background-color: #123358 !important;
+}
+
+.nav-brand-text {
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+header.masthead {
+  padding-top: 15rem;
 }
