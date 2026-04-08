@@ -1,1 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Pricing - Virtual Bridge Services</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+    <link href="css/styles.css" rel="stylesheet" />
+
+    <style>
+        body { background: #f5f7fb; }
+
+        .hero {
+            padding: 140px 0 70px;
+            background: #071a2f;
+            color: white;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+        }
+
+        .section {
+            padding: 70px 0;
+        }
+
+        .card-box {
+            background: white;
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px;
+            border-radius: 14px;
+            border: 1px solid #ddd;
+        }
+
+        .result {
+            font-size: 42px;
+            font-weight: 800;
+            color: #1677ee;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">VIRTUAL BRIDGE SERVICES</a>
+    </div>
+</nav>
+
+<header class="hero">
+    <div class="container">
+        <h1>Transparent Pricing</h1>
+        <p>Estimate your monthly cost instantly based on your needs</p>
+    </div>
+</header>
+
+<section class="section">
+<div class="container">
+
+<div class="card-box">
+
+<h3>Pricing Calculator</h3>
+
+<label>Role</label>
+<select id="role" class="form-control">
+    <option value="admin">Admin VA</option>
+    <option value="customer">Customer Support</option>
+    <option value="executive">Executive Assistant</option>
+    <option value="data">Data Entry Specialist</option>
+    <option value="bookkeeper">Bookkeeper</option>
+    <option value="sales">Sales / Lead Generation</option>
+    <option value="social">Social Media Manager</option>
+    <option value="content">Content Writer</option>
+    <option value="designer">Graphic Designer</option>
+    <option value="video">Video Editor</option>
+    <option value="crm">CRM Specialist</option>
+    <option value="developer">Web Developer</option>
+    <option value="it">IT Support</option>
+</select>
+
+<br><br>
+
+<label>Workload</label>
+<select id="workload" class="form-control">
+    <option value="full">Full Time (174 hrs/month)</option>
+    <option value="part">Part Time (87 hrs/month)</option>
+</select>
+
+<div class="result" id="result">
+$1,170 – $1,518
+</div>
+
+<p id="details">
+Admin VA full time including $300 management fee
+</p>
+
+<hr>
+
+<h4>Included in your monthly fee</h4>
+<ul>
+<li>Dedicated account manager</li>
+<li>Onboarding and HR support</li>
+<li>Accurate timekeeping and payroll coordination</li>
+<li>Performance monitoring and support</li>
+<li>90 day probationary period with free replacement</li>
+</ul>
+
+<p style="margin-top:20px;">
+Billing is one month in advance. Invoice is issued 15 days before the service month and payable within 7 days.
+</p>
+
+<a href="contact.html" class="btn btn-primary mt-3">Enquire Now</a>
+
+</div>
+
+</div>
+</section>
+
+<script>
+const pricing = {
+    admin: [5,7],
+    customer: [5,7],
+    executive: [6,8],
+    data: [5,7],
+    bookkeeper: [6,8],
+    sales: [6,8],
+    social: [7,9],
+    content: [7,9],
+    designer: [7,9],
+    video: [7,9],
+    crm: [9,12],
+    developer: [9,12],
+    it: [9,12]
+};
+
+function calc(){
+    const role = document.getElementById("role").value;
+    const workload = document.getElementById("workload").value;
+
+    const hours = workload === "full" ? 174 : 87;
+    const fee = 300;
+
+    const low = (pricing[role][0]*hours)+fee;
+    const high = (pricing[role][1]*hours)+fee;
+
+    document.getElementById("result").innerText =
+        "$"+low.toLocaleString()+" – $"+high.toLocaleString();
+
+    document.getElementById("details").innerText =
+        role + " " + workload + " including $300 management fee";
+}
+
+document.getElementById("role").addEventListener("change", calc);
+document.getElementById("workload").addEventListener("change", calc);
+</script>
+
+</body>
+</html>
