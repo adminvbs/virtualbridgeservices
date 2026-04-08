@@ -10943,15 +10943,30 @@ p {
   }
 }
 header.masthead {
+  position: relative;
   padding-top: 10.5rem;
   padding-bottom: 6rem;
   text-align: center;
   color: #fff;
-  background-image: url("../assets/img/header-bg.png");
+  background-image: url("../assets/img/coverPhoto/man-cover-photo.jpg");
   background-repeat: no-repeat;
   background-attachment: scroll;
-  background-position: center 5%;
+  background-position: center center;
   background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+header.masthead::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+header.masthead .container {
+  position: relative;
+  z-index: 1;
 }
 header.masthead .masthead-subheading {
   font-size: 1.5rem;
